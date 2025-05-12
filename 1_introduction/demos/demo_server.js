@@ -1,3 +1,5 @@
+//* Demo of Node server
+
 // (1) Imports http from the global scope
 const http = require("http");
 
@@ -16,3 +18,15 @@ const server = http.createServer((req, res) => {
 server.listen(3000, () => {
     console.log("Server is running on port 3000");
 });
+
+//?
+//?
+//? How to run:
+//? 1. CD into this directory
+//?    - cd .\1_introduction\demos\
+//? 2. Run the script
+//?    - node demo_server
+//? 3. Test in the browser
+//?    - http://localhost:3000
+//? 4. Stop the server
+//?    - Ctrl + C
