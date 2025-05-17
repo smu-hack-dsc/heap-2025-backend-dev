@@ -15,8 +15,8 @@ const server = http.createServer((req, res) => {
     const HTML = getHTML(res, projectInfo);
 });
 
-server.listen(3000, () => {
-    console.log("Server is running on port 3000");
+server.listen(8000, () => {
+    console.log("Server is running on port 8000");
 });
 
 //* Write your helper function here
@@ -43,7 +43,7 @@ function getProjectInfo() {
 //? 2. Run the script
 //?    - node solution
 //? 3. Test in the browser
-//?    - http://localhost:3000
+//?    - http://localhost:8000
 //? 4. Stop the server
 //?    - Ctrl + C
 //?

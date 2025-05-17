@@ -6,7 +6,7 @@
 //! (2) Create a server
 //! (2.1) Store and retrieve your project information
 
-//! (3) Starts the server on port 3000
+//! (3) Starts the server on port 8000
 
 //* Write your helper function here
 
@@ -18,6 +18,6 @@
 //? 2. Run the script
 //?    - node app
 //? 3. Test in the browser
-//?    - http://localhost:3000
+//?    - http://localhost:8000
 //? 4. Stop the server
 //?    - Ctrl + C

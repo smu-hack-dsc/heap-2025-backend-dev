@@ -11,4 +11,4 @@ console.log(`Welcome to ${school} ${faculty}, ${CCA} CCA!`);
 //? 1. CD into this directory
 //?    - cd .\1_introduction\demos\
 //? 2. Run the script
-//?    - node demo_script
+//?    - node 1_demo_script

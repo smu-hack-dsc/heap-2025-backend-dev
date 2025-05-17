@@ -21,8 +21,8 @@ const server = http.createServer((req, res) => {
     res.end();
 });
 
-server.listen(3000, () => {
-    console.log("Server is running on port 3000");
+server.listen(8000, () => {
+    console.log("Server is running on port 8000");
 });
 
 function getHTML() {
@@ -41,8 +41,8 @@ function getHTML() {
 //? 1. CD into this directory
 //?    - cd .\1_introduction\demos\
 //? 2. Run the script
-//?    - node demo_server
+//?    - node 3_demo_html
 //? 3. Test in the browser
-//?    - http://localhost:3000
+//?    - http://localhost:8000
 //? 4. Stop the server
 //?    - Ctrl + C
