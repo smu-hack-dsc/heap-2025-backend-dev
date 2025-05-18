@@ -11,27 +11,20 @@ const server = http.createServer((req, res) => {
     const projectInfo = getProjectInfo();
 
     //! (3) Get, write, and return HTML
-    const HTML = getHTML(res, projectInfo);
+    const HTML = getHTML(projectInfo);
     res.write(HTML);
     res.end();
 });
 
-server.listen(3000, () => {
-    console.log("Server is running on port 3000");
+server.listen(8000, () => {
+    console.log("Server is running on port 8000");
 });
 
 //* Write your helper function here
 function getProjectInfo() {
-    const projectTitle = "Backend Workshop";
-    const projectDescription = "dotHack Backend Workshop to teach beginners";
-    const teamMembers = [
-        "Terris",
-        "Syahmi",
-        "Sean",
-        "Kai Xun",
-        "Minn",
-        "Dong Kiat",
-    ];
+    const projectTitle = "Expedition 33";
+    const projectDescription = "When One Falls. We Continue.";
+    const teamMembers = ["Gustave", "Maelle", "Lune", "Sciel"];
 
     return { projectTitle, projectDescription, teamMembers };
 }
@@ -44,109 +37,120 @@ function getProjectInfo() {
 //? 2. Run the script
 //?    - node solution
 //? 3. Test in the browser
-//?    - http://localhost:3000
+//?    - http://localhost:8000
 //? 4. Stop the server
 //?    - Ctrl + C
 //?
 
 //* Provided helper function
-function getHTML(res, projectInfo) {
+function getHTML(projectInfo) {
     return `
         <!DOCTYPE html>
         <html lang="en">
-            <head>
-                <meta charset="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>My Project Information</title>
-            </head>
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>${projectInfo.projectTitle}</title>
             ${getStyleCSS()}
-            <body>
-                <h1>My Project Information</h1>
-                <h2>${projectInfo.projectTitle}</h2>
-                <p>${projectInfo.projectDescription}</p>
-                <br />
-                <h3>Team Members</h3>
-                <ul>
-                    ${projectInfo.teamMembers
-                        .map((member) => `<li>${member}</li>`)
-                        .join("")}
-                </ul>
-            </body>
+        </head>
+        <body>
+            <video id="bg-video" autoplay muted loop playsinline>
+                <source src="https://motionbgs.com/media/7744/expedition-33.960x540.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="content">
+                <div>
+                    <h1>${projectInfo.projectTitle}</h1>
+                    <p>${projectInfo.projectDescription}</p>
+                </div>
+                <div>
+                    <h3>Expedition Team</h3>
+                    <ul>
+                        ${projectInfo.teamMembers
+                            .map((member) => `<li>${member}</li>`)
+                            .join("")}
+                    </ul>
+                </div>
+            </div>
+        </body>
         </html>
-        `;
+    `;
 }
 
 function getStyleCSS() {
     return `
     <style>
-        body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        html, body {
+            height: 100dvh;
             margin: 0;
             padding: 0;
-            color: #333;
-            user-select: none;
-            animation: fadeIn 1s ease-in-out;
+            user-select:none;
+        }
+        body {
             min-height: 100vh;
-            /* Animated gradient background */
-            background: linear-gradient(
-                135deg,
-                #f5f7fa,
-                #c3cfe2,
-                #ffffff,
-                #c3cfe2,
-                #f5f7fa
-            );
-            background-size: 400% 400%;
-            animation: fadeIn 1s ease-in-out,
-                gradientMove 15s ease-in-out infinite;
+            min-width: 100vw;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            align-content: center;
+            align-items: center;
         }
-
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        #bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100vw;
+            min-height: 100vh;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            object-position: center center;
+            background: #000;
+            opacity: 95%;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .content {
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 18px;
+            box-shadow: 0 8px 1000px 0 rgb(36, 36, 39);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: 1s;
         }
-
-        h1,
-        h2,
-        h3 {
+        .content:hover {
+            box-shadow: 0 8px 1px 0 rgb(36, 36, 39);
+        }
+        h1, h2, h3 {
             text-align: center;
-            color: #2c3e50;
+            color: #e6e6e6;
             margin-top: 1rem;
-            transition: color 0.3s ease;
-        }
-        h1:hover,
-        h2:hover,
-        h3:hover {
-            color: #2980b9;
+            margin-bottom: 1rem;
+            transition: color 0.5s;
         }
         p {
             max-width: 600px;
             margin: 1rem auto;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.6;
-            padding: 0 1rem;
             text-align: center;
-            transition: transform 1s ease;
+            transition: 1s;
         }
         p:hover {
             transform: scale(1.5);
-            color: #2980b9;
+            color: #000000;
+            font-weight: bold;
+            -webkit-text-stroke: 0.5px #ffffff;
         }
         ul {
             max-width: 400px;
@@ -154,49 +158,47 @@ function getStyleCSS() {
             padding: 0;
             list-style-type: none;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background: black;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background: rgba(20, 20, 20, 0.7);
             overflow: hidden;
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s;
         }
         ul:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.25);
         }
         li {
             padding: 0.75rem 1rem;
-            border-bottom: 1px solid #eee;
-            background: white;
-            transition: background-color 0.3s ease, color 0.3s ease,
-                transform 0.3s ease;
+            border-bottom: 1px solid #444;
+            background: transparent;
+            color: #fff;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
         }
         li:last-child {
             border-bottom: none;
         }
         li:hover {
-            background-color: #2980b9;
+            background-color: #ffffff;
+            color: #222;
             font-weight: bold;
-            color: white;
             transform: translateX(10px);
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        @media (max-width: 600px) {
-            p,
-            ul {
-                max-width: 90%;
+        @media (max-width: 700px) {
+            p, ul {
+                max-width: 95vw;
             }
             h1 {
                 font-size: 1.5rem;
             }
-            h2,
-            h3 {
+            h2, h3 {
                 font-size: 1.2rem;
+            }
+        }
+        @media (max-width: 500px) {
+            .content {
+                padding: 1rem 0.5rem;
+            }
+            h1, h2, h3 {
+                font-size: 1.1rem;
             }
         }
     </style>

@@ -23,25 +23,28 @@ app.use("/", (req, res, next) => {
 });
 
 //* Route handlers - START
-app.get("/hello", (req, res) => {
-    res.send("<h1>Hello World!</h1>");
+app.get("/wheee", (req, res) => {
+    res.send("<h1>WHEEEEEEEEEEEEEEEE :D</h1>");
 });
-app.get("/bye", (req, res) => {
-    res.send("<h1>Bye bye</h1>");
+app.get("/whooo", (req, res) => {
+    res.send("<h1>Used to be all 'Wheeee!' But now he's all 'Whooo'.</h1>");
 });
 //* Route handlers - END
 
 //* Fallback middleware for handling 404 errors
 app.use("/", (req, res) => {
+    const spaces = "&nbsp;&nbsp;&nbsp;&nbsp;";
     res.send(`
         <h1>
-            This path does not exist.
+            Are you a <sup>wheee</sup> or a <sub>whooo</sub> person?
+            <br/><br/>
+            ${spaces}<a href="/wheee">/wheee</a>
+            <br/><br/>
+            ${spaces}<a href="/whooo">/whooo</a>
+            <br/><br/>
+            The <sup>WHEEE</sup> balances the <sub>whooo</sub>
             <br/>
-            <br/>
-            Try <a href="/hello">/hello</a>
-            <br/>
-            <br/>
-            Try <a href="/bye">/bye</a>
+            ${spaces}WheeWhooWheeWhoo
         <h1/>`);
 });
 
@@ -65,7 +68,7 @@ app.listen(PORT, () => {
 //?    - npm run start
 //? 3. Test in the browser
 //?    - http://localhost:8000
-//?    - http://localhost:8000/hello
-//?    - http://localhost:8000/bye
+//?    - http://localhost:8000/wheee
+//?    - http://localhost:8000/whooo
 //? 4. Stop the server
 //?    - Ctrl + C

@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
 
     //! (3) Get, write, and return HTML
     //! - Get is done for you
-    const HTML = getHTML(res, projectInfo);
+    const HTML = getHTML(projectInfo);
 });
 
 server.listen(8000, () => {
@@ -49,7 +49,7 @@ function getProjectInfo() {
 //?
 
 //* Provided helper function
-function getHTML(res, projectInfo) {
+function getHTML(projectInfo) {
     return `
         <!DOCTYPE html>
         <html lang="en">
@@ -85,7 +85,6 @@ function getStyleCSS() {
             color: #333;
             user-select: none;
             animation: fadeIn 1s ease-in-out;
-            min-height: 100vh;
             /* Animated gradient background */
             background: linear-gradient(
                 135deg,

@@ -6,6 +6,7 @@ const app = express();
 let reqCounter = 0;
 let counter = 0;
 
+//* Print Helper Function
 function printConsoleLog(message) {
     console.log(`${reqCounter}.${counter++} - ${message}`);
 }

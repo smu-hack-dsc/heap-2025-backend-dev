@@ -16,15 +16,15 @@ if (
 app.use(express.json());
 app.use(cors());
 
-// Use requireAuth() to protect this route
-// If user isn't authenticated, requireAuth() will redirect to '/'
+//* Use requireAuth() to protect this route
+//! If user isn't authenticated, requireAuth() will redirect to '/'
 app.get("/protected", requireAuth(), async (req, res) => {
     console.log("Accessing protected route...");
 
-    // Use `getAuth()` to get the user's `userId`
+    //? Use `getAuth()` to get the user's `userId`
     const { userId } = getAuth(req);
 
-    // Use Clerk's JavaScript Backend SDK to get the user's User object
+    //? Use Clerk's JavaScript Backend SDK to get the user's User object
     const user = await clerkClient.users.getUser(userId);
 
     return res.json({ user });

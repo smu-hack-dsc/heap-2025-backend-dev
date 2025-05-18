@@ -22,7 +22,14 @@ server.listen(8000, () => {
 function getProjectInfo() {
     const projectTitle = "Backend Workshop";
     const projectDescription = "dotHack Backend Workshop to teach beginners";
-    const teamMembers = ["Terris", "Syahmi"];
+    const teamMembers = [
+        "Terris",
+        "Syahmi",
+        "Sean",
+        "Kai Xun",
+        "Minn",
+        "Dong Kiat",
+    ];
 
     return { projectTitle, projectDescription, teamMembers };
 }
