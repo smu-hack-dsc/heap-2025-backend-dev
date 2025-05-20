@@ -1,6 +1,6 @@
 const supabase = require("./connection");
 
-// Exercise 4: Updating your routes to use DB
+// Exercise 3: Updating your routes to use DB
 // - Use Supabase to fetch and manipulate data instead of hardcoded data
 
 // Completed example
@@ -20,7 +20,7 @@ const getDoneTasks = async () => {
 const getToDoTasks = async () => {
 };
 
-// TODO: Implement updateTaskStatus to update task done status
+// TODO: Implement updateTaskStatus to update task done status to opposite
 const updateTaskStatus = async (id, done) => {
 };
 

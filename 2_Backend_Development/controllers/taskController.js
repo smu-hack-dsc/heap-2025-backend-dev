@@ -1,6 +1,6 @@
 const service = require("../models/taskService");
 
-// Exercise 2: Building your routes 
+// Exercise 4: Building your controller functions 
 // Implement the functionalities for each of the following routes
 // - GET all tasks
 // - POST new task
@@ -8,11 +8,9 @@ const service = require("../models/taskService");
 // - GET to-do tasks
 // - PUT update task status by ID
 // - POST search tasks by title
-// 
-// Exercise 4: Updating your routes to use DB
-// - Use Supabase to fetch and manipulate data instead of hardcoded data
+
+// - Use Supabase to fetch and manipulate data
 // - Implement the functions in taskController.js to interact with Supabase
-// - Use async/await for asynchronous operations
 // - Handle errors appropriately and send responses back to the client
 
 // Completed example
@@ -40,7 +38,7 @@ const getDoneTasks = async (req, res) => {
 const getToDoTasks = async (req, res) => {
 };
 
-// TODO: Implement updateTaskStatus to toggle task done status
+// TODO: Implement updateTaskStatus to toggle task done status to opposite
 const updateTaskStatus = async (req, res) => {
 };
 

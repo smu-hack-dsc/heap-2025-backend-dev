@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 // Exercise 1: Building your routes
-// Create for 
+// Create for:
 // - createNewTask
 // - getDoneTasks
 // - getToDoTasks
@@ -18,7 +18,7 @@ const {
 // - POST new task
 // - GET done tasks
 // - GET to-do tasks
-// - PUT update task status by ID
+// - PUT update task status by ID to opposite state
 // - POST search tasks by title
 // router.get(...);
 // router.post(...);
