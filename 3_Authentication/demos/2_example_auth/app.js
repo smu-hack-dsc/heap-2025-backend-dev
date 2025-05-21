@@ -24,7 +24,17 @@ app.use("/", (req, res, next) => {
 
 //* Route handlers - START
 app.get("/wheee", (req, res) => {
-    res.send("<h1>WHEEEEEEEEEEEEEEEE :D</h1>");
+    const isAuthenticated =
+        req.headers["authorization"] === `Bearer ${secretToken}`;
+
+    if (isAuthenticated) res.send("<h1>WHEEEEEEEEEEEEEEEE :D</h1>");
+    else
+        res.send(
+            `<h1>
+                You are not allowed!!!
+                <sub>whooo</sub>
+            </h1>`
+        );
 });
 app.get("/whooo", (req, res) => {
     res.send("<h1>Used to be all 'Wheeee!' But now he's all 'Whooo'.</h1>");
