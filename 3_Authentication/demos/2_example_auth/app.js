@@ -536,6 +536,14 @@ function getStyleCSS() {
 
         .action-button:hover {
             border-color: rgba(217, 165, 66, 0.7);
+            color: rgba(212, 175, 55, 1);
+            
+            // Animate pulse
+            animation-delay: 0.5s;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation-name: pulse;
         }
 
         .button-container {
@@ -579,15 +587,12 @@ function getStyleCSS() {
         /* Animations */
         @keyframes pulse {
             0% {
-                opacity: 0.4;
                 transform: scale(1);
             }
             50% {
-                opacity: 0.8;
-                transform: scale(1.5);
+                transform: scale(1.05);
             }
             100% {
-                opacity: 0.4;
                 transform: scale(1);
             }
         }
