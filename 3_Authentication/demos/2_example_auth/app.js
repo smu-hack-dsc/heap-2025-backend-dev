@@ -84,10 +84,14 @@ function getHTML(route) {
             ${getStyleCSS()}
         </head>
         <body>
+            <video id="bg-video" autoplay muted loop playsinline>
+                <source src="https://motionbgs.com/media/7744/expedition-33.960x540.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div class="app-container">
             ${
                 route === "Home"
-                    ? getHTMLHome(route)
+                    ? getHTMLHome()
                     : route === "WHEEE"
                     ? getHTMLWHEEE()
                     : route === "WHOOO"
@@ -104,7 +108,7 @@ function getHTML(route) {
     `;
 }
 
-function getHTMLHome(route) {
+function getHTMLHome() {
     return `
         <div id="home">
             <!-- Header -->
@@ -269,6 +273,12 @@ function getStyleCSS() {
             min-height: 100vh;
             padding: 50px;
         }
+        
+        #home, #wheee, #whooo {
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.6);
+            min-height: 85dvh
+        }
 
         /* Typography */
         h1 {
@@ -334,6 +344,23 @@ function getStyleCSS() {
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+        }
+        
+        /* Background */
+        #bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100vw;
+            min-height: 100vh;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            object-position: center center;
+            background: #000;
+            opacity: 40%;
         }
 
         /* Header */
@@ -528,6 +555,10 @@ function getStyleCSS() {
             backdrop-filter: blur(4px);
         }
 
+        .content-box:hover {
+            border-color: rgba(217, 165, 66, 0.7);
+        }
+
         .content-box h2 {
             margin-bottom: 1.5rem;
         }
@@ -537,6 +568,12 @@ function getStyleCSS() {
             margin-bottom: 1.5rem;
             text-align: center;
             font-size: 1.125rem;
+        }
+
+        .content-box:hover h2,
+        .content-box:hover p,
+        .content-box:hover span {
+            color: rgba(212, 175, 55, 1);
         }
 
         /* Animations */
