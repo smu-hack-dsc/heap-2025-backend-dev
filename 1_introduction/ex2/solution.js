@@ -64,7 +64,7 @@ function getHTML(projectInfo) {
                     <p>${projectInfo.projectDescription}</p>
                 </div>
                 <div>
-                    <h3>Expedition Team</h3>
+                    <h1>Expedition Team</h1>
                     <ul>
                         ${projectInfo.teamMembers
                             .map((member) => `<li>${member}</li>`)
@@ -125,7 +125,6 @@ function getStyleCSS() {
             color: #fff;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
             transition: 1s;
         }
         .content:hover {
@@ -149,8 +148,9 @@ function getStyleCSS() {
         p:hover {
             transform: scale(1.5);
             color: #000000;
+            font-family: Arial;
             font-weight: bold;
-            -webkit-text-stroke: 0.5px #ffffff;
+            -webkit-text-stroke: 1px #ffffff;
         }
         ul {
             max-width: 400px;
