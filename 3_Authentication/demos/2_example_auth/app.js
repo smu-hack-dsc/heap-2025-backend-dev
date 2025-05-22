@@ -37,7 +37,7 @@ app.get("/wheee", (req, res) => {
         );
 });
 app.get("/whooo", (req, res) => {
-    if (isAuthenticated) res.send(getHTML("WHOOO"));
+    res.send(getHTML("WHOOO"));
 });
 //* Route handlers - END
 
