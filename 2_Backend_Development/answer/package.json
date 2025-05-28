@@ -1,0 +1,21 @@
+{
+  "name": "2_backend_development",
+  "version": "1.0.0",
+  "description": ".hack HEAP 2025 Backend Development Workshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "author": ".hack",
+  "license": "ISC"
+}
